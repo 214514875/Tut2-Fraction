@@ -33,8 +33,8 @@ public:
 	{
 		den = d;
 	}
-
-	Fraction add(Fraction frac)
+	
+	Fraction& operator+(Fraction& frac)
 	{
 		Fraction addF;
 		addF.setNum(num + frac.getNum());
@@ -42,15 +42,15 @@ public:
 		return addF;
 	}
 
-	Fraction sub(Fraction frac)
+	Fraction& operator-(Fraction& frac)
 	{
 		Fraction subF;
 		subF.setNum(num - frac.getNum());
 		subF.setDen(den - frac.getDen());
 		return subF;
 	}
-
-	Fraction multiply(Fraction frac)
+		
+	Fraction& operator*(Fraction& frac)
 	{
 		Fraction mulF;
 		mulF.setNum(num*frac.getNum());
@@ -58,7 +58,7 @@ public:
 		return mulF;
 	}
 
-	Fraction divide(Fraction frac)
+	Fraction& operator/(Fraction& frac)
 	{
 		Fraction divF;
 		divF.setNum(int(num / frac.getNum()));
@@ -90,10 +90,10 @@ int main()
 	Fraction frac2 = Fraction(n,d);
 	Fraction sub, add, mult, div;
 
-	add = frac1.add(frac2);
-	sub = frac1.sub(frac2);
-	mult = frac1.multiply(frac2);
-	div = frac1.divide(frac2);
+	add = frac1+frac2;
+	sub = frac1-frac2;
+	mult = frac1*frac2;
+	div = frac1/frac2;
 
 	cout << "The sum is " << endl;
 	add.print();
