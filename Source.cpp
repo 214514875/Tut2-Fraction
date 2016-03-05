@@ -4,51 +4,63 @@ using namespace std;
 
 class Fraction{
 private:
-	int num1;
-	int num2;
+	int num;
+	int den;
 
 public:
-	Fraction(int n1, int n2){
-		num1 = n1;
-		num2 = n2;
+	Fraction(int n, int d){
+		num= n;
+		den = d;
 	};
 
-	int getNum1(){
-		return num1;
+	Fraction(){
+	};
+
+	int getNum(){
+		return num;
 	}
 
-	int getNum2(){
-		return num2;
+	int getDen(){
+		return den;
 	}
 
-	void setNum1(int n1)
+	void setNum(int n)
 	{
-		num1 = n1;
+		num = n;
 	}
 
-	void setNum2(int n2)
+	void setDen(int d)
 	{
-		num2 = n2;
+		den = d;
 	}
 
-	float add(Fraction frac)
+	Fraction add(Fraction frac)
 	{
-		return float(num1/num2) + float(frac.getNum2/frac.getNum1);
+		Fraction addF;
+		addF.setNum(num + frac.getNum());
+		addF.setDen(den + frac.getDen());
+		return addF;
 	}
 
-	float subract(Fraction frac)
+	Fraction sub(Fraction frac)
 	{
-		return float(num1/num2) - float(frac.getNum1/frac.getNum2);
+		Fraction subF;
+		subF.setNum(num - frac.getNum());
+		subF.setDen(den - frac.getDen());
+		return subF;
 	}
 
-	float divide(Fraction frac)
+	Fraction divide(Fraction frac)
 	{
-		return float(num1/num2)/float(frac.getNum1/frac.getNum2);
+		Fraction divF;
+		divF.setNum(int(num / frac.getNum()));
+		divF.setDen(int(den / frac.getDen()));
+		return divF;
 	}
 
 	void print()
 	{
-		cout << num1 << "/" << num2 << endl;
+		cout << num << "/" << den << endl;
 	}
 };
 
