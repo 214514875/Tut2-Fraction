@@ -50,6 +50,14 @@ public:
 		return subF;
 	}
 
+	Fraction multiply(Fraction frac)
+	{
+		Fraction mulF;
+		mulF.setNum(num*frac.getNum());
+		mulF.setDen(den*frac.getDen());
+		return mulF;
+	}
+
 	Fraction divide(Fraction frac)
 	{
 		Fraction divF;
@@ -66,6 +74,35 @@ public:
 
 int main()
 {
+	int num, den,flag=1,n,d;
+
+	cout << "Enter a numerator " << endl;
+	cin >> num;
+	cout << "Enter a denominator " << endl;
+	cin >> den;
+
+	cout << "Enter a numerator " << endl;
+	cin >> n;
+	cout << "Enter a denominator " << endl;
+	cin >> d;
+
+	Fraction frac1 = Fraction(num,den);
+	Fraction frac2 = Fraction(n,d);
+	Fraction sub, add, mult, div;
+
+	add = frac1.add(frac2);
+	sub = frac1.sub(frac2);
+	mult = frac1.multiply(frac2);
+	div = frac1.divide(frac2);
+
+	cout << "The sum is " << endl;
+	add.print();
+	cout << "The differance is " << endl;
+	sub.print();
+	cout << "The multiplication is " << endl;
+	mult.print();
+	cout << "The quotient is " << endl;
+	div.print();
 
 	return 0;
 }
